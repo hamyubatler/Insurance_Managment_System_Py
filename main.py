@@ -1,6 +1,7 @@
-from Methods import *
+"""Main entry point for the Bajaj Finance Insurance Management System."""
+import Methods
 
 if __name__ == "__main__":
-    server()  # creating Server and tables
+    Methods.server()
     print("\nBajaj Finance - Online Insurance\n")
-    login_input()  # initial login
+    Methods.login_input()

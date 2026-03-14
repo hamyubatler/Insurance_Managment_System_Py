@@ -80,7 +80,7 @@ pre {
         <div class="metrics-title">
             Metrics:<br>
         </div>
-        Total lines of code: <span id="loc">401</span><br>
+        Total lines of code: <span id="loc">389</span><br>
         Total lines skipped (#nosec): <span id="nosec">0</span>
     </div>
 </div>
@@ -91,98 +91,6 @@ pre {
 <br>
 <div id="results">
     
-<div id="issue-0">
-<div class="issue-block issue-sev-low">
-    <b>hardcoded_password_string: </b> Possible hardcoded password: 'Nikyl1978@'<br>
-    <b>Test ID:</b> B105<br>
-    <b>Severity: </b>LOW<br>
-    <b>Confidence: </b>MEDIUM<br>
-    <b>CWE: </b><a href="https://cwe.mitre.org/data/definitions/259.html" target="_blank">CWE-259</a><br>
-    <b>File: </b><a href=".\Methods.py" target="_blank">.\Methods.py</a><br>
-    <b>Line number: </b>10<br>
-    <b>More info: </b><a href="https://bandit.readthedocs.io/en/1.9.4/plugins/b105_hardcoded_password_string.html" target="_blank">https://bandit.readthedocs.io/en/1.9.4/plugins/b105_hardcoded_password_string.html</a><br>
-
-<div class="code">
-<pre>
-9	
-10	password = &quot;Nikyl1978@&quot;  # database connection password
-11	Agent_password = &quot;Insurance@1515&quot;  # common password for the agent login
-</pre>
-</div>
-
-
-</div>
-</div>
-
-<div id="issue-1">
-<div class="issue-block issue-sev-low">
-    <b>hardcoded_password_string: </b> Possible hardcoded password: 'Insurance@1515'<br>
-    <b>Test ID:</b> B105<br>
-    <b>Severity: </b>LOW<br>
-    <b>Confidence: </b>MEDIUM<br>
-    <b>CWE: </b><a href="https://cwe.mitre.org/data/definitions/259.html" target="_blank">CWE-259</a><br>
-    <b>File: </b><a href=".\Methods.py" target="_blank">.\Methods.py</a><br>
-    <b>Line number: </b>11<br>
-    <b>More info: </b><a href="https://bandit.readthedocs.io/en/1.9.4/plugins/b105_hardcoded_password_string.html" target="_blank">https://bandit.readthedocs.io/en/1.9.4/plugins/b105_hardcoded_password_string.html</a><br>
-
-<div class="code">
-<pre>
-10	password = &quot;Nikyl1978@&quot;  # database connection password
-11	Agent_password = &quot;Insurance@1515&quot;  # common password for the agent login
-12	
-</pre>
-</div>
-
-
-</div>
-</div>
-
-<div id="issue-2">
-<div class="issue-block issue-sev-low">
-    <b>blacklist: </b> Standard pseudo-random generators are not suitable for security/cryptographic purposes.<br>
-    <b>Test ID:</b> B311<br>
-    <b>Severity: </b>LOW<br>
-    <b>Confidence: </b>HIGH<br>
-    <b>CWE: </b><a href="https://cwe.mitre.org/data/definitions/330.html" target="_blank">CWE-330</a><br>
-    <b>File: </b><a href=".\Methods.py" target="_blank">.\Methods.py</a><br>
-    <b>Line number: </b>45<br>
-    <b>More info: </b><a href="https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random" target="_blank">https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random</a><br>
-
-<div class="code">
-<pre>
-44	    # Generate a unique customer ID
-45	    customer_id = &#x27;&#x27;.join(random.sample(&#x27;0123456789&#x27;, 7))
-46	
-</pre>
-</div>
-
-
-</div>
-</div>
-
-<div id="issue-3">
-<div class="issue-block issue-sev-low">
-    <b>blacklist: </b> Standard pseudo-random generators are not suitable for security/cryptographic purposes.<br>
-    <b>Test ID:</b> B311<br>
-    <b>Severity: </b>LOW<br>
-    <b>Confidence: </b>HIGH<br>
-    <b>CWE: </b><a href="https://cwe.mitre.org/data/definitions/330.html" target="_blank">CWE-330</a><br>
-    <b>File: </b><a href=".\Policy.py" target="_blank">.\Policy.py</a><br>
-    <b>Line number: </b>97<br>
-    <b>More info: </b><a href="https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random" target="_blank">https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random</a><br>
-
-<div class="code">
-<pre>
-96	        # generate a random policy id
-97	        Policy_id = &#x27;&#x27;.join(random.sample(&#x27;0123456789&#x27;, 7))
-98	        # insert the policy info into the database
-</pre>
-</div>
-
-
-</div>
-</div>
-
 </div>
 
 </body>
