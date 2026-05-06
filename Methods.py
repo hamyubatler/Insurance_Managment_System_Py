@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 load_dotenv()
 DB_PASSWORD = os.getenv("DB_PASSWORD")
 AGENT_PASSWORD = os.getenv("AGENT_PASSWORD")
+PEPPER = os.getenv("SECRET_PEPPER")
 
 def login_input():
     """Displays the initial login menu."""
@@ -229,7 +230,8 @@ def insert_customer(cust_id, name, age, gender, contact, email, pwd, add, n_name
     conn = create_db_connection("localhost", "root", DB_PASSWORD, "mysql_python")
     if not conn:
         return
-    hashed = bcrypt.hashpw(pwd.encode('utf-8'), bcrypt.gensalt())
+    peppered_password = pwd + PEPPER
+    hashed = bcrypt.hashpw(peppered_password.encode('utf-8'), bcrypt.gensalt())
 
     sql = """INSERT INTO customer_info (Customer_id, Customer_Name, Customer_Age, 
              Customer_Gender, Contact_Number, Email_Id, Password, Address, 
@@ -267,7 +269,8 @@ def login_check(customer_id, pass_word):
             stored_hash = result[0][6]
             if isinstance(stored_hash, str):
                 stored_hash = stored_hash.encode('utf-8')
-            if bcrypt.checkpw(pass_word.encode('utf-8'), stored_hash):
+            peppered_input = pass_word + PEPPER            
+            if bcrypt.checkpw(peppered_input.encode('utf-8'), stored_hash):
                 policy.policy_page(customer_id)
             else:
                 print("Incorrect Password")
